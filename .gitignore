@@ -46,3 +46,6 @@ _deps
 
 # visual studio code
 .vscode/
+
+# Mac directory files
+.DS_Store
