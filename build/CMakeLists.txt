@@ -1,7 +1,13 @@
 cmake_minimum_required(VERSION 3.25.2)
 
-project(OutOfBound.out)
+project(OutOfBound)
 
+set(CXX_STANDARD 14)
+
+#make compile commands for clangd
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+#set common variables
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(INCLUDE_DIR ${ROOT_DIR}/include)
 set(SRC_DIR ${ROOT_DIR}/src)
@@ -14,6 +20,8 @@ if(NOT SDL2_FOUND)
 endif()
 
 message(${SDL2_INCLUDE_DIR})
+
+add_compile_options(-O2)
 
 include_directories(${INCLUDE_DIR} ${SDL2_INCLUDE_DIR}/..)
 add_executable(${PROJECT_NAME} ${SRC})
